@@ -6,15 +6,13 @@ import * as ResizablePrimitive from 'react-resizable-panels'
 
 import { cn } from '@/lib/utils'
 
-// We use ': any' for the props to bypass the ComponentProps type check entirely
+// Function name kept exactly as ResizablePanelGroup
 function ResizablePanelGroup({
   className,
   ...props
-}: any) {
-  const PanelGroup: any = (ResizablePrimitive as any)['PanelGroup']
-  
+}: any) { // Changed only this type to any
   return (
-    <PanelGroup
+    <ResizablePrimitive.PanelGroup
       data-slot="resizable-panel-group"
       className={cn(
         'flex h-full w-full data-[panel-group-direction=vertical]:flex-col',
@@ -25,23 +23,23 @@ function ResizablePanelGroup({
   )
 }
 
-function ResizablePanel({ ...props }: any) {
-  const Panel: any = (ResizablePrimitive as any)['Panel']
-  return <Panel {...props} />
+// Function name kept exactly as ResizablePanel
+function ResizablePanel({ ...props }: any) { // Changed only this type to any
+  return <ResizablePrimitive.Panel {...props} />
 }
 
+// Function name kept exactly as ResizableHandle
 function ResizableHandle({
   withHandle,
   className,
   ...props
-}: any) {
-  const Handle: any = (ResizablePrimitive as any)['PanelResizeHandle']
+}: any) { // Changed only this type to any
   return (
-    <Handle
+    <ResizablePrimitive.PanelResizeHandle
       data-slot="resizable-panel-handle"
       className={cn(
         'bg-border relative flex w-px items-center justify-center after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:-translate-y-1/2 data-[panel-group-direction=vertical]:after:translate-x-0 [&[data-panel-group-direction=vertical]>div]:rotate-90',
-        className
+        className,
       )}
       {...props}
     >
@@ -50,7 +48,7 @@ function ResizableHandle({
           <GripVerticalIcon className="h-2.5 w-2.5" />
         </div>
       )}
-    </Handle>
+    </ResizablePrimitive.PanelResizeHandle>
   )
 }
 
