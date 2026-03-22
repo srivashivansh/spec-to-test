@@ -6,6 +6,7 @@ import * as ResizablePrimitive from 'react-resizable-panels'
 
 import { cn } from '@/lib/utils'
 
+// We use ': any' for the props to bypass the ComponentProps type check entirely
 function ResizablePanelGroup({
   className,
   ...props
@@ -26,7 +27,6 @@ function ResizablePanelGroup({
 
 function ResizablePanel({ ...props }: any) {
   const Panel: any = (ResizablePrimitive as any)['Panel']
-  // Fixed: Returning 'Panel' instead of 'Component'
   return <Panel {...props} />
 }
 
