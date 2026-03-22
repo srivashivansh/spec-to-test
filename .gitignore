@@ -1,0 +1,26 @@
+# dependencies - removing the leading '/' makes these recursive
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+
+# Specific rule for your nested project
+my-v0-project/node_modules/
+my-v0-project/.next/
+
+# next.js
+.next/
+out/
+
+# testing & production
+coverage/
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+.env*
+.vercel
+*.tsbuildinfo
+next-env.d.ts
