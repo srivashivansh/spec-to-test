@@ -10,7 +10,6 @@ function ResizablePanelGroup({
   className,
   ...props
 }: any) {
-  // Use bracket notation to bypass the "Property does not exist" type check
   const PanelGroup: any = (ResizablePrimitive as any)['PanelGroup']
   
   return (
@@ -27,7 +26,8 @@ function ResizablePanelGroup({
 
 function ResizablePanel({ ...props }: any) {
   const Panel: any = (ResizablePrimitive as any)['Panel']
-  return <Component {...props} />
+  // Fixed: Returning 'Panel' instead of 'Component'
+  return <Panel {...props} />
 }
 
 function ResizableHandle({
