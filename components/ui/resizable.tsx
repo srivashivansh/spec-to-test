@@ -6,11 +6,11 @@ import * as ResizablePrimitive from 'react-resizable-panels'
 
 import { cn } from '@/lib/utils'
 
+// We use ': any' to replace the 'React.ComponentProps' line that is failing
 function ResizablePanelGroup({
   className,
   ...props
 }: any) {
-  // We keep your names but use bracket access to kill the error
   const Group: any = (ResizablePrimitive as any)['PanelGroup']
   return (
     <Group
